@@ -1,0 +1,849 @@
+@charset "UTF-8";
+
+/* CSS Document */
+
+
+/*============== Remind ==============*/
+
+#Remind-tool {
+    background: #f4f3f3;
+    padding-top: 40px;
+}
+
+.Remind-reminder {
+    max-width: 870px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 110px;
+}
+
+.Remind-reminderTitle {
+    font-size: 2.25rem;
+    font-weight: bold;
+    padding: 0 30px;
+    width: 215px;
+}
+
+.Remind-reminderArea {
+    font-size: .9375rem;
+    width: calc(100% - 215px);
+    line-height: 20px;
+    border-left: solid 5px #8c001a;
+    padding: 0 25px;
+}
+
+@media (max-width: 1300.98px) {
+  #Remind-tool {
+    padding-top: 65px;
+  }
+
+  .Remind-reminder {
+    padding-top: 85px; 
+  }
+}
+
+@media (max-width: 1199.98px) {
+    .Remind-reminder {
+        padding-top: 75px; 
+    }
+}
+
+@media (max-width: 991.98px) {
+  #Remind-tool {
+    padding-top: 25px;
+  }
+  .Remind-reminder {
+    padding-top: 110px;
+  }
+}
+
+@media (max-width: 915.98px) {
+  #Remind-tool { padding-top: 30px; }
+  .Remind-reminder { padding-top: 100px; }
+}
+
+@media (max-width: 912.98px) {
+  #Remind-tool { padding-top: 35px; }
+  .Remind-reminder { padding-top: 100px; }
+}
+
+@media (max-width: 850.98px) {
+    #Remind-tool { padding-top: 80px; }
+}
+
+
+@media (max-width: 890.98px) {
+  .Remind-reminder { padding-top: 95px; }
+}
+
+@media (max-width: 797.98px) {
+  .Remind-reminder { padding-top: 55px; }
+}
+
+@media (max-width: 767.98px) {
+  .Remind-reminder { padding-top: 60px; }
+  #Remind-tool { padding-top: 20px; }
+}
+
+@media (max-width: 575.98px) {
+  .Remind-reminder { padding-top: 45px; }
+   #Remind-tool { padding-top: 30px; }
+}
+
+
+/*============== Search ==============*/
+
+#main-search {
+    background: #f4f3f3;
+    padding: 15px 0 30px;
+}
+
+ul.search-title {
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 1400px) {
+    ul.search-title {
+        padding: 0;
+    }
+}
+
+ul.search-title li {
+    font-family: 'Noto Sans TC';
+    font-size: 1.125rem;
+    padding: 0 12px;
+    border-right: solid 1px #8c001a;
+}
+
+@media (max-width: 576px) {
+    ul.search-title li {
+        padding: 0 8px;
+    }
+}
+
+@media (max-width: 360px) {
+    ul.search-title li {
+        padding: 0 6px;
+    }
+}
+
+@media (max-width: 320px) {
+    ul.search-title li {
+        padding: 0 2px;
+    }
+}
+
+ul.search-title li:first-of-type {
+    font-family: 'Noto Sans TC';
+    font-weight: bold;
+    font-size: 1.125rem;
+}
+
+ul.search-title li:last-of-type {
+    border-right: none;
+}
+
+ul.search-title li a {
+    display: block;
+    transition: .5s;
+}
+
+ul.search-title li a:hover {
+    color: #8c001a;
+}
+
+.searchBox-area {
+    width: 30%;
+}
+
+.searchBox-keyword {
+    width: 35%;
+}
+
+.searchBox-selectArea,
+.searchBox-selectCountry {
+    width: calc(50% - 42px);
+}
+
+.go-box,
+.back-box {
+    width: calc(50% - 38px);
+    position: relative;
+    display: inline-block;
+}
+
+    .go-box img,
+    .back-box img {
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        top: 6px;
+        right: 10px;
+        pointer-events: none;
+    }
+
+#flatpickr-go,
+#flatpickr-back {
+    width: 100%;
+}
+
+img.searchBox-area-icon {
+    vertical-align: middle;
+    margin: 0 5px;
+}
+
+.searchBox-keyword input {
+    width: calc(100% - 181px);
+}
+
+.searchBox-btn {
+    font-size: 1rem;
+    width: 115px;
+    height: 28px;
+    display: inline-block;
+    padding: 0px 0 0 10px;
+    line-height: 26px;
+    margin-left: 10px;
+    border-left: solid 1px #000;
+}
+
+    .searchBox-btn a {
+        transition: .5s;
+    }
+
+@media (max-width: 768px) {
+    .searchBox-btn a {
+        color: #8c001a;
+    }
+}
+
+.searchBox-btn:hover a {
+    color: #8c001a;
+}
+
+
+/*============== selectArry ==============*/
+
+#chose-list {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 25px 0;
+    justify-content: space-between;
+}
+
+.selectArry {
+    display: flex;
+    font-size: .875rem;
+}
+
+.selectArry-title {
+    font-weight: bold;
+    border-right: solid 1px #959595;
+    padding-right: 10px;
+    margin-right: 10px;
+}
+
+.radio-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+    .radio-box input[type=radio] {
+        /* hide original inputs */
+        visibility: hidden;
+        position: absolute;
+    }
+
+        .radio-box input[type=radio] + label {
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+            .radio-box input[type=radio] + label:before {
+                height: 10px;
+                margin-right: 4px;
+                margin-bottom: -1px;
+                content: " ";
+                display: inline-block;
+                vertical-align: baseline;
+                transition: 0.3s;
+                background: #fff;
+                border: 1px solid #8c001a;
+                border-radius: 10px;
+            }
+
+
+            /* CUSTOM RADIO AND CHECKBOX STYLES */
+
+
+            /* DEFAULT */
+
+            .radio-box input[type=radio] + label:before {
+                border-radius: 50%;
+                width: 10px;
+            }
+
+
+        /* CHECKED */
+
+        .radio-box input[type=radio]:checked + label:before {
+            /* box-shadow: inset 0 0 0 100px #8c001a; */
+            background: #8c001a;
+        }
+
+ul.selectStatus {
+    display: flex;
+    font-size: .875rem;
+}
+
+    ul.selectStatus li {
+        border-right: solid 1px #959595;
+        padding-right: 10px;
+        margin-right: 10px;
+    }
+
+        ul.selectStatus li:last-of-type {
+            border: none;
+        }
+
+@media (max-width: 1100px) {
+    ul.selectStatus li {
+        padding-right: 0;
+        border-right: none;
+    }
+}
+
+@media (max-width: 992px) {
+    ul.selectStatus {
+        display: none;
+    }
+}
+
+
+/* 動態 */
+
+.selectStatus-title {
+    display: none;
+    font-weight: bold;
+    border-right: solid 1px #959595;
+    padding-right: 10px;
+    margin-right: 10px;
+}
+
+ul.selectStatus li.red,
+.table-content-tool .red {
+    color: #f19300;
+}
+
+ul.selectStatus li.pink,
+.table-content-tool .pink {
+    color: #ec006f;
+}
+
+ul.selectStatus li.orange,
+.table-content-tool .orange {
+    color: #8c001a;
+}
+
+ul.selectStatus li.blue,
+.table-content-tool .blue {
+    color: #0060ff;
+}
+
+ul.selectStatus li.green,
+.table-content-tool .green {
+    color: #f10000;
+}
+
+.searchTable-title {
+    background: #f7d7db;
+}
+
+.searchTable-title-tool {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+@media (max-width: 992px) {
+    .searchTable-title-tool {
+        display: none;
+    }
+}
+
+.searchTable-title-tool > div {
+    border-right: solid 1px #fff;
+    border-left: solid 1px #fff;
+    padding: 10px 0;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.searchTable-title-tool .title-departure {
+    border-left: solid 2px #fff;
+}
+
+.searchTable-title-tool .title-order {
+    border-right: solid 2px #fff;
+}
+
+
+/* 標題寬度 */
+
+.title-departure,
+.departure {
+    width: 120px;
+}
+
+.title-status,
+.status {
+    width: 120px;
+}
+
+.title-price,
+.price {
+    width: 200px;
+}
+
+.title-order,
+.order {
+    width: 115px;
+}
+
+.title-name,
+.name {
+    width: calc(100% - 665px);
+}
+
+.searchTable h3.main-title {
+    display: none;
+}
+
+#table-list {
+    width: 100%;
+}
+
+.table-content:hover {
+    background: #eee;
+}
+
+.table-content-tool {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    align-items: center;
+    border-bottom: solid 1px #ccc;
+}
+
+.departure {
+    /*    font-size: 1.25rem;*/
+    font-weight: bold;
+    line-height: 21px;
+    color: #000;
+}
+
+    .departure .Syear {
+        display: block;
+        color: #4e4e4e;
+        font-weight: normal;
+    }
+
+.name {
+    text-align: left;
+    padding: 30px 20px;
+    line-height: 22px;
+    position: relative;
+}
+
+    .name:before {
+        content: "";
+        width: 2px;
+        height: calc(100% - 60px);
+        position: absolute;
+        border: solid 1px #959595;
+        border-top: none;
+        border-bottom: none;
+        left: -2px;
+        top: 30px;
+    }
+
+    .name a {
+        color: #000;
+        text-decoration: none;
+    }
+
+    .name #small_title {
+        background: #8c001a;
+        font-size: 16px;
+        color: white;
+        padding: 0 15px;
+        border-radius: 10px;
+    }
+
+
+.name #small_title_holiday {
+    background: #ffffff;
+    font-size: 18px;
+    color: #080808;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+    .name h3 {
+        font-size: 1.125rem;
+        margin-bottom: 10px;
+        line-height: 24px;
+    }
+
+        .name h3:hover {
+            text-decoration: underline;
+        }
+
+    .name .name-descript {
+        font-size: .875rem;
+    }
+
+.price-client {
+    font-family: Arial;
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #c10000;
+    letter-spacing: .1rem;
+}
+
+    .price-client:before {
+        content: "NT.";
+        font-size: .875rem;
+        color: #000;
+        font-family: Microsoft JhengHei, "微軟正黑體";
+    }
+
+.order a {
+    padding: 5px 20px;
+    border: solid 1px #959595;
+    border-radius: 20px;
+    font-size: .875rem;
+    font-weight: bold;
+    display: inline-block;
+    transition: .3s;
+}
+
+    .order a:hover {
+        border: solid 1px #8c001a;
+        background: #8c001a;
+        color: #fff;
+    }
+
+
+/*==================== 搜尋列表頁 ====================*/
+.title_plant, .plant {
+    width: 60px;
+}
+
+.title_seat, .seat {
+    width: 50px;
+}
+
+/*====================== pagination ====================*/
+
+
+/* -------------------------------- 
+
+Basic style
+
+-------------------------------- */
+
+.cd-pagination {
+    width: 90%;
+    max-width: 768px;
+    margin: 2em auto 4em;
+    letter-spacing: normal;
+    text-align: center;
+    font-family: 'Century Gothic', 'Microsoft JhengHei';
+}
+
+    .cd-pagination li {
+        /* hide numbers on small devices */
+        display: none;
+        margin: 0 2px;
+    }
+
+        .cd-pagination li.button {
+            /* make sure prev next buttons are visible */
+            display: inline-block;
+        }
+
+            .cd-pagination li.button span {
+                display: inline-block;
+            }
+
+    .cd-pagination a,
+    .cd-pagination span {
+        display: inline-block;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        /* use padding and font-size to change buttons size */
+        padding: 4px 8px;
+        font-size: 14px;
+    }
+
+        .cd-pagination a:hover {
+            background-color: #e8e8e8;
+        }
+
+.no-touch .cd-pagination a:hover {
+    background-color: #f7f7f7;
+}
+
+.cd-pagination a:active {
+    /* click effect */
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -o-transform: scale(0.9);
+    transform: scale(0.9);
+}
+
+.cd-pagination a.disabled {
+    /* button disabled */
+    color: rgba(46, 64, 87, 0.4);
+    pointer-events: none;
+}
+
+    .cd-pagination a.disabled::before,
+    .cd-pagination a.disabled::after {
+        opacity: .4;
+    }
+
+.cd-pagination .button:first-of-type a::before {
+    content: '\00ab  ';
+    font-size: 1.2rem;
+}
+
+.cd-pagination .button:last-of-type a::after {
+    content: ' \00bb';
+    font-size: 1.2rem;
+}
+
+.cd-pagination .current {
+    /* selected number */
+    background-color: #bbb;
+    color: #fff;
+    pointer-events: none;
+}
+
+@media only screen and (min-width: 768px) {
+    .cd-pagination li {
+        display: inline-block;
+    }
+
+        .cd-pagination li.button span {
+            display: none;
+        }
+}
+
+@media only screen and (min-width: 1170px) {
+    .cd-pagination {
+        margin: 6em auto 4em;
+    }
+}
+
+
+/*============== 列表斷點 ==============*/
+
+@media (max-width: 992px) {
+    #chose-list {
+        display: none;
+    }
+
+    .searchTable h3.main-title {
+        display: block;
+        text-align: center;
+        font-size: 1.5rem;
+        font-family: 'Noto Sans TC';
+        padding-bottom: 15px;
+        padding: 15px 0 20px;
+        margin-bottom: 15px;
+        border-bottom: solid 4px #8c001a;
+    }
+
+        .searchTable h3.main-title span {
+            background: #fff100;
+            background: linear-gradient(transparent 80%, #fff100 0%);
+            padding: 0 10px;
+        }
+
+    .table-content {
+        margin-bottom: 10px;
+    }
+
+        .table-content:hover {
+            background: transparent;
+        }
+
+    .table-content-tool {
+        border-bottom: none;
+    }
+
+        .table-content-tool > div {
+            width: 100%;
+            padding: 10px 0;
+            text-align: left;
+        }
+
+        .table-content-tool .departure {
+            width: 100%;
+            background: #f7d7db;
+            margin-bottom: 5px;
+            padding: 10px 5px;
+        }
+
+    .departure:before {
+        content: "出發日期：";
+    }
+
+    .departure .Syear {
+        display: inline-block;
+        color: #000;
+        font-weight: bold;
+    }
+
+        .departure .Syear:after {
+            content: "/";
+        }
+
+    .name {
+        width: 100%;
+        border-bottom: solid 1px #dcdcdc;
+    }
+
+        .name:before {
+            display: none;
+        }
+
+        .name h3:after {
+            content: "more";
+            /* background: #cb7b87; */
+            /* color: #fff; */
+            width: 10px;
+            border: solid 1px #b1b1b1;
+            height: 1px;
+            font-size: .75rem;
+            margin-left: 10px;
+            padding: 0px 5px;
+            /* border-radius: 8px; */
+        }
+
+    .status {
+        width: 100%;
+    }
+
+        .status:before {
+            content: "報名狀態：";
+            color: #000;
+        }
+
+    .table-content .table-content-tool .price {
+        padding: 0;
+    }
+
+    .price:before {
+        content: "團費：";
+    }
+
+    .table-content .table-content-tool .order {
+        text-align: center;
+        /* border-bottom: solid 1px #dcdcdc; */
+        padding-bottom: 10px;
+        margin-bottom: 2px;
+    }
+
+    .order a {
+        border: solid 1px #8c001a;
+        background: #8c001a;
+        color: #fff;
+        font-size: 1.125rem;
+        font-weight: normal;
+        width: 50%;
+        max-width: 200px;
+    }
+}
+
+
+/*============== 平版尺寸 ==============*/
+
+@media (max-width: 768px) {
+    /* Search */
+    .searchBox-area {
+        width: 45%;
+    }
+
+    .searchBox-date {
+        width: 100%;
+    }
+
+    .searchBox-keyword {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .searchBox-btn {
+        border: 1px solid #ccc;
+        background: #fff;
+        margin-left: 2px;
+        width: 123px;
+    }
+
+    ul.search-title {
+        padding-bottom: 10px;
+        border-bottom: solid 2px #7d7d7e;
+    }
+
+        ul.search-title li:first-of-type {
+            padding-left: 0;
+            font-size: 1rem;
+        }
+
+        ul.search-title li {
+            font-size: 1rem;
+        }
+}
+
+
+/*============== 手機版尺寸 ==============*/
+
+@media (max-width: 576px) {
+    /* Search */
+    .searchBox-area,
+    .searchBox-date {
+        width: 100%;
+    }
+
+    .searchBox-date {
+        margin-top: 10px;
+    }
+    /* Remind */
+    .Remind-reminderTitle {
+        width: 100%;
+        margin-bottom: 10px;
+        text-align: center;
+        font-weight: normal;
+        padding: 0 2px;
+        font-size: 2rem;
+    }
+
+    .Remind-reminderArea {
+        width: 100%;
+        padding: 0 15px;
+        border-left: none;
+    }
+}

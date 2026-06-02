@@ -1,0 +1,619 @@
+/* ===============================
+   基本變數
+================================ */
+:root {
+  --red: rgb(179, 46, 46);
+  --red-haver: rgb(224, 3, 3);
+  --page:#fd4044;
+  --red-title:#ce2222;
+  --red-cus1-haver:#ff1a1e;
+  --text: #2d3436;
+  --primary: #575757;
+  --text-gray:#636262;
+  --background: #ffffff;
+  --white: #ffffff;
+  --sheet-gray: #f2f2f2;
+  --transition: all 0.3s ease;
+}
+
+ #content {
+    overflow: hidden;
+    height: auto;
+    width: auto;
+    margin-top: 60px;
+    letter-spacing: 1px;
+}
+
+@media (min-width: 768px) {
+    #content {
+        margin-top: 120px;
+    }
+}
+
+@media (min-width: 992px) {
+    #content {
+        margin-top: 110px;
+    }
+}
+
+
+/* container */
+.container,
+.container-fluid,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl,
+.container-xxl {
+	padding-right: var(--bs-gutter-x, 0.75rem);
+	padding-left: var(--bs-gutter-x, 0.75rem);
+	margin-right: auto;
+	margin-left: auto;
+}
+@media (min-width: 576px) {
+	.container,
+	.container-sm {
+		max-width: 540px;
+	}
+}
+@media (min-width: 768px) {
+	.container,
+	.container-md,
+	.container-sm {
+		max-width: 720px;
+	}
+}
+@media (min-width: 992px) {
+	.container,
+	.container-lg,
+	.container-md,
+	.container-sm {
+		max-width: 960px;
+	}
+}
+@media (min-width: 1200px) {
+	.container,
+	.container-lg,
+	.container-md,
+	.container-sm,
+	.container-xl {
+		max-width: 1140px;
+	}
+}
+@media (min-width: 1400px) {
+	.container,
+	.container-lg,
+	.container-md,
+	.container-sm,
+	.container-xl,
+	.container-xxl {
+		max-width: 1320px;
+	}
+}
+
+@media (min-width: 1900px) {
+	.container,
+	.container-lg,
+	.container-md,
+	.container-sm,
+	.container-xl,
+	.container-xxl,
+	.container-3xl {
+		max-width: 1320px;
+	}
+}
+
+.row {
+	--bs-gutter-x: 1.5rem;
+	--bs-gutter-y: 0;
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: calc(var(--bs-gutter-y) * -1);
+	margin-right: calc(var(--bs-gutter-x) * -0.5);
+	margin-left: calc(var(--bs-gutter-x) * -0.5);
+}
+
+/* ===============================
+   全域
+================================ */
+body {
+  font-family: "Noto Sans TC", "微軟正黑體", Arial, sans-serif;
+  color: var(--text);
+  margin-top: 0px;
+  margin-bottom: 0px;
+  background-position: top;
+}
+
+p, li {
+  letter-spacing: 1px;
+}
+
+/* ============================== */
+
+/* ---------- 名稱 + 編輯按鈕 ---------- */
+#main_customer_tool {
+  width: 1120px;
+  margin: 0 auto;
+  padding: 60px 0 40px;
+  font-size: 13px;
+  clear: both;
+}
+
+/* ---------- 名稱 + 編輯按鈕 ---------- */
+.name_edit {
+  display: flex;
+  justify-content: space-between; /* 左右分開 */
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+
+.name_title {
+  font-family: "微軟正黑體";
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.name_title .style1 {
+  font-weight: 600;
+  margin-left: 4px;
+}
+
+.member_edit_tool {
+  text-align: right;
+}
+
+.member_edit_tool a p {
+  font-size: 16px;
+  color: var(--red-title);
+  font-weight: 600;
+  margin: 0;
+  white-space: nowrap; /* 避免換行 */
+}
+
+.member_edit_tool a p span {
+  color: var(--primary);
+}
+
+
+/* ---------- 表格區 ---------- */
+.cus1_title {
+  width: 1120px;
+  margin-bottom: 20px;
+  overflow-x: auto;
+}
+
+.cus1_title table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 1020px;
+}
+
+/* 表頭 */
+.cus1_title thead th {
+  background-color: var(--sheet-gray);
+  border: 1px solid #ccc;
+  color: var(--text-gray);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 8px;
+  text-align: center;
+}
+
+.cus1_title thead th a {
+   color: var(--text-gray);
+}
+
+/* 內容 */
+.cus1_title tbody td {
+  border: 1px solid #ccc;
+  padding: 10px 8px;
+  font-size: 14px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* hover 整列（排除團名） */
+.cus1_title tbody tr:hover {
+  background-color: #f6f6f6;
+}
+
+/* 團名欄 */
+.cus1_title td:nth-child(2) {
+  min-width: 250px;
+  text-align: left;
+  padding-left: 12px;
+  line-height: 1.4;
+}
+
+/* 團名連結 */
+.cus1_title td:nth-child(2) a {
+  color: #333;
+  text-decoration: none;
+  line-height: 1.5;
+}
+
+/* 第 3 欄連結 */
+.cus1_title td:nth-child(3) a {
+  color: var( --red);
+  text-decoration: none;
+}
+.cus1_title td:nth-child(3) a:hover {
+  color: var(--red-cus1-haver);
+}
+
+.cus1_title td:nth-child(8) a {
+  color: var( --red);
+  text-decoration: none;
+}
+.cus1_title td:nth-child(8) a:hover {
+  color: var(--red-cus1-haver);
+}
+
+
+/* 桌面版固定團名欄寬度 */
+@media (min-width: 768px) {
+  .cus1_title th:nth-child(2),
+  .cus1_title td:nth-child(2) {
+    width: 250px;
+    min-width: 250px;
+    max-width: 250px;
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  .cus1_title th:nth-child(10),
+  .cus1_title td:nth-child(10) {
+    width: 130px;
+    min-width: 130px;
+    max-width: 130px;
+    white-space: normal;
+    word-break: break-word;
+  }
+}
+
+/* 平板可左右滑動 */
+@media (max-width: 1399.98px) {
+  #main_customer_tool {
+    width: 100%;
+    padding: 40px 50px ;
+  }
+  .cus1_title {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .cus1_title table {
+    min-width: 1120px;
+    table-layout: auto;
+  }
+}
+
+/* 平板 & 手機：卡片化 */
+@media (max-width: 767.98px) {
+  .cus1_title {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .cus1_title table,
+  .cus1_title thead,
+  .cus1_title tbody,
+  .cus1_title th,
+  .cus1_title td,
+  .cus1_title tr {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .cus1_title thead {
+    display: none;
+  }
+
+  .cus1_title tr {
+    margin-bottom: 12px;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: var(--sheet-gray);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+
+  .cus1_title td {
+    padding: 6px 0;
+    border: none;
+    border-bottom: 1px solid #e5e5e5;
+    text-align: left;
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  .cus1_title td:last-child {
+    border-bottom: 0;
+  }
+
+  .cus1_title td::before {
+      content: attr(data-label) "："; 
+      font-weight: 600;
+      color: #555;
+      margin-right: 2px; 
+      float: left ;
+  }
+
+  /* 團名文字換行、緊湊 */
+  .cus1_title td[data-label="團名"] span a {
+      display: inline;          
+      word-break: break-word;   
+      line-height: 1.4;         
+  }
+
+  .cus1_title tr {
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+
+  .cus1_title tbody td {
+    font-size: 16px;
+    font-weight: 600;
+    text-align: left;
+    letter-spacing: 0.1rem;
+    line-height: 25px;
+  }
+
+  .name_title .style1 {
+    font-weight: 600;  
+  }
+}
+
+@media (max-width: 575.98px) {
+  #main_customer_tool {
+    padding: 30px 20px 40px;
+  }
+
+  .name_edit {
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    margin-bottom: 15px;    
+  }
+
+  .name_title, 
+  .member_edit_tool {
+    text-align: center;
+  }
+
+  .name_title {
+    font-size: 23px;
+    padding-bottom: 10px;
+  }
+
+  .member_edit_tool a p {
+    font-size: 18px;
+  }
+
+  .cus1_title {
+    width: 100%;
+    overflow-x: auto;
+    margin-bottom: 0;
+  }
+
+  .edit_btn {
+    width: 100%;
+  }
+
+  .edit_btn input[type="text"] {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+}
+
+/* ---------- 分頁 ---------- */
+#cus_page {
+    text-align: center;
+    padding: 20px 0;
+    font-family: "微軟正黑體", Arial, sans-serif;
+    font-size: 14px;
+    color: #666666;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 12px; 
+    flex-wrap: wrap; 
+}
+
+#cus_page a {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: var(--sheet-gray);
+    color: #333;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+#cus_page a:hover {
+    background-color: var(--page);
+    color: var(--white);
+}
+
+/* 手機版 */
+@media (max-width: 575.98px) {
+    #cus_page {
+        gap: 8px;
+        padding: 15px 0;
+    }
+
+    #cus_page a {
+        padding: 5px 10px;
+        font-size: 13px;
+    }
+}
+
+
+/* ---------- 下方說明文字 ---------- */
+.info01 {
+  color: #ff0000;
+  padding: 10px 0;
+  clear: both;
+  float: none;
+  font-size: 15px;
+  font-family: "微軟正黑體";
+  letter-spacing: 2px;
+  text-align: center;
+
+  width: 90%;
+  line-height: 25px;
+  margin: auto;
+}
+
+/* ===============================
+   電子報輸入欄位樣式
+================================ */
+.epaper-center input[type="text"] {
+  width: 250px;
+  height: 40px;
+
+  padding: 0 12px;
+  line-height: 40px;
+
+  border-radius: 8px;
+  border: 1px solid #ddd;
+
+  background: #f8f9fa;
+  font-size: 14px;
+  font-family: "Noto Sans TC", "微軟正黑體", Arial, sans-serif;
+
+  transition: all 0.3s ease;
+}
+
+
+.epaper-center  input[type="text"]:focus {
+    outline: none;
+    background: #fff;
+    border-color: #ce2222;
+    box-shadow: 0 0 0 3px rgba(206, 34, 34, 0.15);
+}
+
+.epaper-center  input[type="image"] {
+    width: 74px;
+    height: 26px;
+    border: 0;
+    cursor: pointer;
+}
+
+.epaper-center  span#revEmail {
+    color: red;
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin-left: 12px;
+    visibility: hidden;
+    display: inline-block;
+}
+
+.epaper-center  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px ;
+
+    margin-top: 10px;
+    padding: 0;
+}
+
+.epaper-btn {
+  height: 40px;
+  padding: 0 16px;
+  font-size: 14px;
+  border-radius: 8px;
+  white-space: nowrap;
+}
+
+.epaper-center  #revEmail {
+  position: absolute;
+  top: 46px;
+  left: 0;
+  font-size: 13px;
+  color: #ce2222;
+  line-height: 1.2;
+  visibility: hidden;
+}
+
+.epaper-btn-flat {
+  padding: 12px 24px;
+  background: linear-gradient(90deg, #fd4044, #cc2b30);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space:nowrap;
+}
+
+.epaper-btn-flat:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+}
+
+
+.epaper-center  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px ;
+
+    margin-top: 10px;
+    padding: 0;
+}
+
+.epaper-m {
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+
+}
+
+.epaper-center .epaper-m h3 {
+  font-size: 20px;
+  padding-left: 5px;
+  color: #555;
+  padding-right: 10px;
+}
+
+  @media (max-width: 991.98px) {
+  .epaper-center  {
+    display: block;
+    align-items: center;
+    justify-content: center;
+    gap: 8px ;
+
+    margin-top: 10px;
+    padding: 0;
+    text-align: center;
+  }
+
+  .epaper-center .epaper-m h3 {
+    padding-right: 0;
+  }
+
+}
+
+@media (max-width: 350.98px) {
+  .epaper-center input[type="text"] {
+    margin-bottom: 10px;
+  }
+
+  .epaper-center .epaper-m h3 {
+    font-size: 17px;
+  }
+
+  .member_edit_tool a p {
+    font-size: 16px;
+  }
+}

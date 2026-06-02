@@ -1,0 +1,355 @@
+/* ===============================
+   全域與主要區塊
+================================ */
+:root {
+  --red: #b32e2e;
+  --red-haver: #e00303;
+  --page: #fd4044;
+  --red-title: #ce2222;
+  --text-gray: #595959;
+  --primary: #575757;
+  --background: #ffffff;
+  --white: #ffffff;
+  --sheet-gray: #f2f2f2;
+  --lightgray: #ccc;
+  --darkgray: #555;
+  --transition: all 0.3s ease;
+}
+
+body {
+  font-family: "Noto Sans TC", "微軟正黑體", Arial, sans-serif;
+  color: var(--text-gray);
+  margin: 0;
+  background: var(--background);
+  letter-spacing: 0.02rem;
+}
+
+p, li { letter-spacing: 0.02rem; }
+
+#content {
+  width: 100%;
+  max-width: 1320px;
+  margin: 60px auto 0;
+  padding: 0 20px;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) { #content { margin-top: 120px; } }
+@media (min-width: 992px) { #content { margin-top: 110px; } }
+
+
+
+/* ===============================
+   標題與說明
+================================ */
+#question { margin-top: 30px; }
+
+.style1, .question_con {
+  width: 100%;
+  max-width: 1000px;
+  margin: 10px auto;
+  letter-spacing: 0.1rem;
+}
+
+.style1 { 
+  font-size: 18px;
+  color: #660099; 
+  padding-top: 10px;
+}
+
+.question_con {
+  font-size: 16px; 
+  color: #666; 
+  line-height: 28px; 
+}
+
+/* ===============================
+   團號區塊
+================================ */
+.test {
+  width: 100%;
+  max-width: 1000px;
+  margin: 20px auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+}
+
+.question_Data,
+.question_Data2 {
+  width: 100%;
+  font-size: 17px;
+  font-weight: 600;
+  color: #1678b1;
+  letter-spacing: 0.08rem;
+  line-height: 1.6;
+}
+
+/* 團號與團名佔一整行 */
+.test > .question_Data:nth-child(1),
+.test > .question_Data2:nth-child(2) {
+  width: 100%;
+}
+
+/* ===============================
+   題目區
+================================ */
+.question_list {
+  width: 100%;
+  max-width: 1000px;
+  margin: 10px auto;
+  font-size: 17px;
+  line-height: 40px;
+  color: #666;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 12px;
+}
+
+/* ⭐ 選項容器 */
+.question_list span {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 10px;
+  align-items: center;
+  margin-top: 6px;
+}
+
+/* ⭐⭐ 圈圈 + 文字 = 一整組，整行換行 */
+.question_list span > label,
+.question_list span > span,
+.question_list span > div {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;  
+  max-width: 100%;
+}
+
+.question_list span label {
+  display: inline-flex;     
+  align-items: center;
+  white-space: nowrap;        
+  line-height: 1.6;
+  cursor: pointer;
+}
+
+/* 圈圈大小、間距 */
+.question_list input[type="radio"],
+.question_list input[type="checkbox"] {
+  flex-shrink: 0;
+  margin-right: 6px;
+  cursor: pointer;
+}
+
+/* 文字輸入框 */
+.question_list input[type="text"] {
+  padding: 6px 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  height: 40px;
+  width: 100%;
+  margin-top: 4px;
+}
+
+
+/* Q13 桌機不換行 */
+.question_list.q13 span { flex-wrap: nowrap; }
+
+/* Q15 文字框 */
+#Q15_1_1,
+#Q15_1_2 { width: 60px; margin-right: 6px; }
+
+#Q16 input[type="text"] {
+  height: 80px;       
+  line-height: 1.4;
+}
+
+
+#Q17 {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  resize: vertical;
+  height: 80px; 
+}
+
+/* ===============================
+   說明文字 + textarea
+================================ */
+.notice-box-scroll {
+  width: 100%;
+  max-width: 1000px;  
+  margin: 20px auto;
+  padding: 12px 16px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  line-height: 1.6;
+  font-size: 15px;
+  color: #555;
+  overflow-y: auto;       
+}
+
+.notice-box-scroll .notice-title {
+  font-weight: bold;
+  margin-bottom: 8px;
+  text-align: left;    
+}
+
+.notice-box-scroll ol {
+  margin: 0;
+  text-align: left;  
+}
+
+.notice-box-scroll li {
+  margin-bottom: 8px;
+}
+
+/* ===============================
+   同意勾選
+================================ */
+.agree {
+  width: 100%;
+  max-width: 1200px;
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  font-size: 15px;
+}
+
+.agree span { color: var(--red-title); }
+
+/* ===============================
+   按鈕
+================================ */
+.buttom {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 0 30px;
+}
+
+.question_buttom {
+  width: 100px;
+  height: 44px;
+  background: var(--lightgray);
+  text-align: center;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.question_buttom a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  line-height: 44px;
+  text-decoration: none;
+  color: var(--darkgray);
+}
+
+.question_buttom:hover {
+  background-color: var(--red-haver);
+  transform: translateY(-1px);
+}
+
+.question_buttom:hover a {
+  color: #fff;
+}
+
+/* ===============================
+   問卷底部置中
+================================ */
+.question_bottom {
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: center;
+  align-items: stretch;
+}
+
+.question_bottom p { 
+  color: var(--red-haver);
+  line-height: 25px; 
+}
+
+/* ===============================
+   響應設定
+================================ */
+@media (max-width: 992px) { 
+  .test { gap: 10px 15px; } 
+  .question_bottom br { display: none; }
+  .notice-box-scroll ol { padding-left: 0; }
+}
+
+@media (max-width: 768px) {
+  .test { flex-direction: column; }
+  .question_Data,
+  .question_Data2,
+  .question_list,
+  .agree,
+  .question_bottom {
+    width: 95%;
+    max-width: 95%;
+  }
+
+  .question_list { font-size: 16px; }
+
+  .question_list > span {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 6px 7px;
+    margin-top: 0;
+  }
+
+  /* ✅ Q13 額外說明文字獨立一行 */
+  .question_list.q13 > span > span {
+    grid-column: 1 / -1;
+    font-size: 14px;
+    margin: 0;
+    white-space: normal;
+    color: #777;
+  }
+
+
+  /* Q1 特殊間距 */
+  .question_list span#Q1 { gap: 6px 14px; }
+
+  .question_list input[type="radio"],
+  .question_list input[type="checkbox"] {
+    margin-right: 5px;
+  } 
+}
+
+@media (max-width: 575px) {
+  #question { margin-top: 20px; }
+
+  #Q15 > div:first-child {
+    flex-wrap: wrap;
+  }
+
+  #Q15 > div:first-child input,
+  #Q15 > div:last-child input {
+    width: 35%;
+    margin-bottom: 8px;
+  }
+
+  #Q16 input[type="text"] {
+    height: 120px;        
+  }
+
+   #Q17 {
+     height: 120px; 
+   }
+}
