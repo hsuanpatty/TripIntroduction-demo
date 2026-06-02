@@ -73,27 +73,27 @@ $prevTable = $('.tourist-table table:last');
 document.addEventListener("DOMContentLoaded", function () {
 
   // ==========================================
-  // 0. 防止瀏覽器自動捲動（確保由 JS 精準控制滾動位置）
+  // 0. 防止瀏覽器捲動
   // ==========================================
   if ("scrollRestoration" in history) {
     history.scrollRestoration = "manual";
   }
 
   // ==========================================
-  // 1. 日期格式標準化處理函式
+  // 1. 日期格式
   // ==========================================
   function normalize(date) {
     if (!date) return "";
 
     return date
-      .replace(/\([^)]+\)/g, "")           // 移除括號與裡面的星期 (如 (三) -> 空白)
-      .replace(/[\(\)\uff08\uff09]/g, "")   // 移除殘留的半形或全形括號
-      .replace(/\s/g, "")                  // 移除所有空白字元
+      .replace(/\([^)]+\)/g, "")           
+      .replace(/[\(\)\uff08\uff09]/g, "")   
+      .replace(/\s/g, "")                  
       .trim();                             
   }
 
   // ==========================================
-  // 2. 取得目前畫面上「顯示中」的表格 Rows
+  // 2. 
   // ==========================================
   function getActiveRows() {
     const activeTable =
@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // ==========================================
-  // 3. 全局初始解析與網址/團號預載入處理
+  // 3. 
   // ==========================================
   document.querySelectorAll(".datemain-container").forEach((row) => {
 
@@ -131,21 +131,21 @@ document.addEventListener("DOMContentLoaded", function () {
             baseUrl = "." + baseUrl;
           }
 
-          // 從原本的 onclick 網址中提取現有的 tourNo 參數
+          // 
           const urlParams = new URLSearchParams(fullMatchUrl.split("?")[1] || "");
           let tourNo = urlParams.get("tourNo") || urlParams.get("tour_no") || "";
 
-          // 如果網址沒帶團號，嘗試從畫面上的 class 抓取
+          // 如
           if (!tourNo) {
             tourNo = row.querySelector(".tour-number, .tour-no, .product-number")?.innerText.trim() || "";
           }
 
-          // 將解析出來的基礎網頁與團號綁定到 tr 屬性上，供點擊事件使用
+          // 
           row.setAttribute("data-target-url", baseUrl);
           row.setAttribute("data-tour-no", tourNo);
           row.setAttribute("data-url-extracted", "true");
 
-          // 瀏覽器預先載入處理 (Prefetch)
+          // 
           const rawDate = row.querySelector(".departure-date")?.innerText.trim() || "";
           const cleanDate = normalize(rawDate); 
 
@@ -161,14 +161,14 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       }
 
-      // 移除原本寫死在 HTML 元素上的 onclick 屬性，交由 JS 統一監聽
+      //
       el.removeAttribute("onclick");
       el.style.cursor = "pointer";
     });
   });
 
   // ==========================================
-  // 4. 同步更新右側側邊欄資訊的函式
+  // 4. 同步更新右側
   // ==========================================
   function updateRow(row) {
     if (!row) return;
@@ -178,7 +178,7 @@ document.addEventListener("DOMContentLoaded", function () {
       r.classList.remove("highlight-row");
     });
 
-    // 為當前點選或目標 row 加上高亮
+    // 點選或目標 row 加上高亮
     row.classList.add("highlight-row");
 
     // 抓取該列的各項欄位資料
@@ -187,7 +187,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const statusEl = row.querySelector(".status");
     const status = statusEl?.innerText.trim() || "";
 
-    // 根據狀態 class 決定顏色代碼
+    //  class 顏色代碼
     const color =
       statusEl?.classList.contains("green")
         ? "green"
@@ -218,13 +218,13 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // ==========================================
-  // 5. 統一設定整行 Row 的點擊跳轉監聽
+  // 5. Row 的點擊跳轉
   // ==========================================
   document.querySelectorAll(".datemain-container").forEach((row) => {
     row.style.cursor = "pointer"; // 讓整行滑鼠移上去都變手指
 
     row.addEventListener("click", function (e) {
-      // 如果點擊到的是「報名按鈕」等 <a> 標籤，放行原本連結，不觸發整列換頁
+      // 
       if (e.target.tagName === "A" || e.target.closest("a")) {
         return;
       }
@@ -243,7 +243,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const targetFilename = baseUrl.split("/").pop();
 
       // ------------------------------------------
-      // 狀況 A：如果在同一個網頁內切換日期 → 不換頁，直接平滑滑動
+      // 
       // ------------------------------------------
       if (currentFilename === targetFilename) {
         updateRow(this);
@@ -262,7 +262,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       // ------------------------------------------
-      // 狀況 B：需要換頁 → 紀錄點擊狀態，並帶參數跳轉
+      // 
       // ------------------------------------------
       sessionStorage.setItem("userClickedDate", "true");
       updateRow(this);
@@ -276,7 +276,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // ==========================================
-  // 6. 頁面載入後，核心「網址參數解析與自動月份表格及標題切換」邏輯
+  // 6. 頁面載入後，「網址參數解析與自動月份表格及標題切換」
   // ==========================================
   const params = new URLSearchParams(window.location.search);
   const rawTargetDate = params.get("date");
@@ -289,10 +289,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const dateMatch = targetDate.match(/(\d{4})\/(\d{1,2})/);
     if (dateMatch) {
       const year = dateMatch[1];
-      const month = parseInt(dateMatch[2], 10); // 去除月份前導 0 (如 06 變成 6)
-      const targetTripDate = `${year}-${month}`; // 組合出與 HTML 屬性一致的 "2026-6"
+      const month = parseInt(dateMatch[2], 10); 
+      const targetTripDate = `${year}-${month}`; 
 
-      // 1. 尋找畫面上所有的 table[trip-date] 並切換顯示狀態
+      // 1. 尋找畫面上所有的 table[trip-date] 
       const tables = document.querySelectorAll('.tourist-table table[trip-date]');
       tables.forEach(table => {
         if (table.getAttribute('trip-date') === targetTripDate) {
@@ -302,7 +302,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
 
-      // 2. 【核心新增】同步更新畫面上方 <h3 class="dateContent"> 的文字內容
+      // 2. 同步更新畫面 <h3 class="dateContent"> 的文字內容
       const dateContentHeader = document.querySelector('.month-header .dateContent');
       if (dateContentHeader) {
         dateContentHeader.innerText = `${year} 年 ${month} 月`;
@@ -310,11 +310,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // 月份表格切換完畢後，重新獲取當前「真正顯示中表格」的 rows 陣列
+  // 月份表格切換完畢後，重新獲取當前「真正顯示中表格」的 rows 
   let rows = getActiveRows();
   let targetRow = null;
 
-  // 在目前的月份表格中，比對哪一個 Row 符合網址傳來的日期
+  // 
   if (targetDate) {
     rows.forEach((row) => {
       const rowDate = row.querySelector(".departure-date")?.innerText.trim();
@@ -324,7 +324,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // 防呆機制：如果網址沒帶參數，或是找不到對應日期，則走原本的預設首筆定位邏輯
+  // 
   if (!targetRow && rows.length > 0) {
     const fileRowMap = {
       "B.html": 1,
@@ -345,7 +345,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // ==========================================
-  // 7. 精準畫面定位與右側資訊同步執行
+  // 7. 畫面定位與右側資訊同步
   // ==========================================
   if (targetRow) {
     // 執行右側同步
@@ -360,7 +360,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let defaultTourNo = targetRow.getAttribute("data-tour-no") || 
                         targetRow.querySelector(".tour-number, .tour-no, .product-number")?.innerText.trim() || "";
 
-    // 如果是純空白網址進來，自動在網址後方補上預設第一筆日期的參數（美化網址）
+    // 
     if (!window.location.search) {
       let autoUrl = `${window.location.pathname}?date=${defaultCleanDate}`;
       if (defaultTourNo) {
@@ -369,7 +369,7 @@ document.addEventListener("DOMContentLoaded", function () {
       history.replaceState(null, "", autoUrl);
     }
 
-    // 狀況 A：從別的網頁點日期跳轉進來 (非本頁點擊) → 表格內部置中捲動
+    // 
     if (hasDateParam && !isFromClick) {
       setTimeout(() => {
         const scrollContainer = targetRow.closest(".tourist-table");
@@ -387,7 +387,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }, 100);
     }
 
-    // 狀況 B：在本頁點擊日期觸發的定位 → 瀏覽器視窗平滑滾動置中
+    // 在本頁點擊日期觸發的定位 → 瀏覽器視窗平滑滾動置中
     if (isFromClick) {
       setTimeout(() => {
         targetRow.scrollIntoView({
